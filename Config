@@ -1,3 +1,10 @@
 create database db_example; -- Creates the new database
 create user 'springuser'@'%' identified by 'ThePassword'; -- Creates the user
 grant all on db_example.* to 'springuser'@'%'; -- Gives all privileges to the new user on the newly created database
+
+TO RESET ROOT PASSWORD:
+
+1. service mysql stop
+2. mysqld_safe --skip-grant-tables &
+3. mysql
+4. UPDATE mysql.user SET Password=PASSWORD('new-password') WHERE User='root';
